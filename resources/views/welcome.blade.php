@@ -45,8 +45,8 @@
                     </svg>
                 </div>
 
-                @isset ($msg)
-                    <div class="mt-8 text-lg dark:text-white">{{ $msg }}</div>
+                @isset ($name)
+                    <div class="mt-8 text-lg dark:text-white">Hi, {{ $name }}!</div>
                 @endisset
 
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
