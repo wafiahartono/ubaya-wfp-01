@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,3 +67,5 @@ Route::get('/myfriend/{nrp?}', function ($nrp = null) {
         return view('student-list', ['students' => $students]);
     }
 })->name('friend');
+
+Route::resource('products', ProductController::class);
