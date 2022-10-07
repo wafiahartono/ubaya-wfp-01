@@ -4,20 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $query_raw = DB::select(DB::raw('select * from products'));
-        $query_builder = DB::table('products')->get();
-        $query_model = Product::all();
-
-        // dd($query_raw);
-
-        $products = $query_builder->take(15);
-        return view('product.index', compact('products'));
+        $view = request()->view ?? 'table';
+        $products = Product::all();
+        return view('product.index', compact('view', 'products'));
     }
 
     /**
